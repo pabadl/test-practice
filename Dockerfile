@@ -11,7 +11,9 @@ COPY src ./src
 # Compilar la aplicación
 # Nota: actualmente se omiten los tests con `-DskipTests` para acelerar la construcción.
 # Si quieres que la imagen falle cuando los tests fallan, elimina `-DskipTests`.
-RUN mvn -B -DskipTests package
+RUN mvn -B package
+# Compilar la aplicación omitiendo los tests
+#RUN mvn -B -DskipTests package
 
 FROM eclipse-temurin:17-jre
 WORKDIR /app
